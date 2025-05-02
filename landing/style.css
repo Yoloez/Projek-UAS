@@ -10,8 +10,9 @@ body {
 }
 
 .nav-container {
+  position: fixed;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1.6rem 2.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,12 +24,13 @@ body {
   display: flex;
   align-items: center;
   /* width: 100%; */
+  gap: 2.6rem;
   list-style-type: none;
 }
 
 .nav-list a {
   color: #000;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin: 0 1rem;
   text-decoration: none;
   font-family: petrona, sans-serif;
@@ -41,10 +43,38 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2.5rem;
+}
+
+.autentikasi {
+  justify-content: center;
+  display: flex;
+  gap: 2rem;
+}
+
+.login {
+  background-color: #000000;
+  border: none;
+  padding: 1.2rem 2.4rem;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.register {
+  background-color: #ffffff;
+  border: none;
+  padding: 1.2rem 2.4rem;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+  border: 3px solid #000000;
 }
 
 .hero {
+  margin-top: 2.5rem;
   width: 100%;
   padding: 4rem 300px;
   display: flex;
@@ -56,6 +86,6 @@ header {
   background-position: center;
   background-size: cover;
   object-fit: cover;
-  width: 80vw;
-  height: 100%;
+  width: 70%;
+  height: 50dvh;
 }
