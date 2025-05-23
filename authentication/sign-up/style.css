@@ -17,12 +17,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
   display: flex;
   width: 670px;
-  height: 762px;
+  height: 782px;
   padding: 27px 42px;
   flex-direction: column;
   align-items: center;
@@ -32,4 +35,72 @@ body {
   border: 1px solid #fff;
   background: rgba(255, 255, 255, 0.11);
   backdrop-filter: blur(13.800000190734863px);
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+form input {
+  display: flex;
+  height: 85px;
+  padding: 19px 34px 18px 32px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 308px;
+  flex-shrink: 0;
+  border-radius: 23px;
+  background: #fff;
+  width: 586px;
+  border: none;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* .input input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+} */
+
+.input input {
+  color: rgba(0, 0, 0, 1);
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input button {
+  height: 96px;
+  align-self: stretch;
+  border-radius: 20px;
+  background: linear-gradient(0deg, #180d07 0%, #180d07 100%), #fff;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.card p {
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }

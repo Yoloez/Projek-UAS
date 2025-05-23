@@ -1,12 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: poppins, sans-serif;
-}
+/* body {
+  /* font-family: poppins, sans-serif; */
+/* } */
 
 .hero {
   background-color: antiquewhite;
@@ -30,8 +34,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* gap: 110px; */
-  /* flex-direction: column; */
+  gap: -10px;
+  flex-direction: column;
 }
 
 .nav-container {
@@ -60,4 +64,49 @@ body {
   margin: 0 1rem;
   text-decoration: none;
   font-family: petrona, sans-serif;
+}
+
+#about-us {
+  height: 120dvh;
+  padding: 0 244px 0 82px;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-us-desc {
+  color: #989898;
+  font-family: Heebo;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  width: 631px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 34px;
+}
+
+.about-us-desc h2::after {
+  width: 129px;
+  margin-left: 58px;
+  height: 1.6px;
+  margin-bottom: 11px;
+  background: #7cb48a;
+  content: "";
+  display: inline-block;
+}
+
+#detail {
+  background-image: url("../assets/img/green-abstract-3d-3840x2160-21975.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
 }
