@@ -26,6 +26,7 @@ html {
   height: 100%;
   width: 100%;
   filter: brightness(50%);
+  /* z-index: -1; */
 }
 
 .hero-desc {
@@ -103,10 +104,17 @@ html {
   display: inline-block;
 }
 
-#detail {
+.premium {
+  height: 90vh;
+}
+
+#premium {
+  position: relative;
   background-image: url("../assets/img/green-abstract-3d-3840x2160-21975.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  background-attachment: fixed;
+  /* height: 100%; */
+  width: 100%;
 }
