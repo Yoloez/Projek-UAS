@@ -69,7 +69,7 @@ html {
 
 #about-us {
   height: 120dvh;
-  padding: 0 244px 0 82px;
+  padding: 0 15.25rem 0 5.125rem;
 }
 
 .about-us {
@@ -88,7 +88,7 @@ html {
   font-weight: 500;
   line-height: normal;
   display: flex;
-  width: 631px;
+  max-width: 631px;
   flex-direction: column;
   align-items: flex-start;
   gap: 34px;
@@ -118,3 +118,62 @@ html {
   /* height: 100%; */
   width: 100%;
 }
+
+.taste-container {
+  display: flex;
+  justify-content: center;
+  gap: 29px;
+}
+
+.taste {
+  height: 100dvh;
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 82px;
+}
+.taste-item h2 {
+  color: #000;
+  text-align: center;
+  font-family: Cormorant;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.taste-item p {
+  color: #8c8c8f;
+  text-align: center;
+  font-family: Heebo;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.taste-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.taste h3::after,
+.taste h3::before {
+  width: 129px;
+  margin: 0 42px 0;
+  height: 1.1px;
+  margin-bottom: 11px;
+  background: #c4a163;
+  content: "";
+  display: inline-block;
+}
+
+/* @media (max-width: 1850px) {
+  .about-us {
+    flex-direction: column;
+    align-items: center;
+  }
+} */
