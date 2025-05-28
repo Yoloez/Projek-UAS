@@ -24,8 +24,8 @@ body {
 
 .card {
   display: flex;
-  width: 670px;
-  height: 782px;
+  width: 470px;
+  height: 582px;
   padding: 27px 42px;
   flex-direction: column;
   align-items: center;

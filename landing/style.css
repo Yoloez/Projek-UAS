@@ -393,13 +393,14 @@ footer {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   overflow: hidden;
+  height: 600px;
 }
 
 .product-card img {
   height: 400px;
   object-fit: cover;
   object-position: center;
-  border-radius: 20px;
+  border-radius: 0px;
 }
 
 #cappucino img {
@@ -429,7 +430,7 @@ footer {
   width: 129px;
   margin-left: 58px;
   margin-right: 58px;
-  height: 1.6px;
+  height: 0.1px;
   margin-bottom: 11px;
   background: #c4a163;
   content: "";
