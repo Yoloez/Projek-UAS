@@ -1,21 +1,16 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* body {
-  /* height: 100vh; */
-/* overflow: hidden; */
-/* } */
-
 body {
-  background-image: url("../../assets/img/sign-up.png");
+  background-image: url("../../assets/img/login.jpg");
   width: 100%;
   height: 100dvh;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +19,7 @@ body {
 .card {
   display: flex;
   width: 470px;
-  height: 622px;
+  height: 522px;
   padding: 27px 42px;
   flex-direction: column;
   align-items: center;
@@ -96,7 +91,7 @@ form input {
 
 .card p {
   margin-top: -0.5rem;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   font-family: Poppins;
   font-size: 20px;

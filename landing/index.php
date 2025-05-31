@@ -234,7 +234,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
 
 
 <div class="btn" style="position: relative; width: 100%;">
-  <button onclick="window.location.href='../authentication/sign-up/index.html'">ORDER NOW</button>
+  <button onclick="window.location.href='../authentication/sign-up/index.php'">ORDER NOW</button>
 </div>
 
 
