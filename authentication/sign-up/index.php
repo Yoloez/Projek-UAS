@@ -37,7 +37,7 @@
           $insertQuery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
           if (mysqli_query($conn, $insertQuery)) {
               echo "<script>alert('Registration successful!');</script>";
-              header("Location: ../../user/index.html");
+              header("Location: ../../user/index.php");
               exit();
           } else {
               echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";

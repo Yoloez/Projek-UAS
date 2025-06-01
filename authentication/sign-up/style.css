@@ -4,15 +4,14 @@
   padding: 0;
 }
 
-/* body {
-  /* height: 100vh; */
-/* overflow: hidden; */
-/* } */
+html {
+  zoom: 0.9;
+}
 
 body {
   background-image: url("../../assets/img/sign-up.png");
   width: 100%;
-  height: 100dvh;
+  height: 110dvh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

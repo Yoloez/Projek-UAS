@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,7 +36,7 @@ if (isset($_POST['login'])) {
         } else {
             $_SESSION['user'] = $row['name'];
             echo "<script>alert('Login sebagai User berhasil!');</script>";
-            header("Location: ../../katalog/index.php"); 
+            header("Location: ../../user/index.php"); 
             exit();
         }
     } else {

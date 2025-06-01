@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  zoom: 0.8;
 }
 
 * {
@@ -8,23 +9,16 @@ html {
   box-sizing: border-box;
 }
 
-/* body {
-  /* font-family: poppins, sans-serif; */
-/* } */
-body {
-  margin-top: 4rem;
-}
-
 .hero {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   top: 0;
   position: relative;
-  height: 100vh;
+  height: 125vh;
   /* background-color: antiquewhite; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/img/green-abstract-3d-3840x2160-21975.jpg");
+  background-image: url("../assets/img/landing-ufo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -66,15 +60,15 @@ body {
 .navbar {
   transition: transform 0.3s ease-in-out;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.2rem 1rem !important;
+  background-color: rgba(0, 0, 0, 0.644) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.653);
+  padding: 0.6rem 1rem !important;
 }
 
 .navbar-brand {
-  color: black;
+  color: rgb(255, 255, 255);
   font-family: cormorant;
-  font-size: 36px !important;
+  font-size: 38px !important;
   font-weight: 500;
 }
 
@@ -90,16 +84,16 @@ body {
 }
 
 #contentarea a {
-  font-size: 32px;
+  font-size: 26px;
   font-family: petrona;
-  color: black;
+  color: rgb(255, 255, 255);
   position: relative;
 }
 
 #contentarea a::after {
   position: absolute;
   width: 0;
-  top: 53px;
+  top: 47px;
   left: 0px;
   /* margin-left: 58px; */
   height: 1.5px;

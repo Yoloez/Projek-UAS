@@ -7,7 +7,21 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
-$result = mysqli_query($conn, "SELECT * FROM foods");
+// Pagination
+$limit = 5;
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($page < 1) $page = 1;
+$offset = ($page - 1) * $limit;
+
+// Ambil data dengan LIMIT
+$result = mysqli_query($conn, "SELECT foods.*, category.nama_kategori FROM foods INNER JOIN category ON foods.kategori_id = category.kategori_id LIMIT $limit OFFSET $offset");
+
+// Hitung total data
+$total_result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM foods");
+$total_row = mysqli_fetch_assoc($total_result);
+$total_pages = ceil($total_row['total'] / $limit);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,15 +37,22 @@ $result = mysqli_query($conn, "SELECT * FROM foods");
 <h2>Admin</h2>
 <a href="index.php">Dashboard</a>
 <a href="tambah.php">Tambah Menu</a>
-<a href="../../logout.php">Logout</a>
+<a href="../landing/index.php">Logout</a>
 </div>
 <div class="content">
         <h2>Daftar Menu</h2>
-        <button onclick="window.location.href='../landing/index.php'" class="tambah">Tambah Menu</button>
+        <button onclick="window.location.href='tambah.php'" class="tambah">Tambah Menu</button>
+
+                <div class="filter-buttons">
+            <a href="index.php" class="button-link">Semua</a>
+            <a href="?category=Makanan" class="button-link">Makanan</a>
+            <a href="?category=Minuman" class="button-link">Minuman</a>
+            </div>
         <table border="1">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Category</th>
                 <th>Price</th>
                 <th>Stock</th>
                 <th>Action</th>
@@ -40,15 +61,29 @@ $result = mysqli_query($conn, "SELECT * FROM foods");
                 <tr>
                     <td><?= $row['name'] ?></td>
                     <td><?= $row['description'] ?></td>
+                    <td><?= $row['nama_kategori'] ?></td>
                     <td><?= $row['price'] ?></td>
                     <td><?= $row['stock'] ?></td>
                     <td>
                         <button onclick="window.location.href='edit.php?food_id=<?= $row['food_id'] ?>'" class="edit">Edit</button>
-                        <a href="hapus.php?id=<?= $row['food_id'] ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+<button onclick="if(confirm('Yakin ingin menghapus?')) window.location.href='hapus.php?food_id=<?= $row['food_id'] ?>';" class="hapus">Hapus</button>
+
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </table>
+
+            <!-- Pagination -->
+<div class="pagination" style="margin-top: 20px;">
+    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+        <?php if ($i == $page): ?>
+            <p><?= $i ?></p>
+        <?php else: ?>
+            <a href="?page=<?= $i ?>"><?= $i ?></a>
+        <?php endif; ?>
+    <?php endfor; ?>
+</div>
+
         </div>
     
 </body>
