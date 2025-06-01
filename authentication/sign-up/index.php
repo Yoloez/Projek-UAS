@@ -21,37 +21,48 @@
       $email = $_POST['email'];
       $password = $_POST['password'];
 
-      // Check if the user already exists
-      $checkUserQuery = "SELECT * FROM users WHERE email = '$email'";   
-      $result = mysqli_query($koneksi, $checkUserQuery);
+      $checkEmail = "SELECT * FROM users WHERE email = '$email'";   
+      $emailcheck = mysqli_query($conn, $checkEmail);
+      $checkPassword = "SELECT * FROM users WHERE password = '$password'";
+      $passwordcheck = mysqli_query($conn, $checkPassword);
 
-      if (mysqli_num_rows($result) > 0) {
+      if (mysqli_num_rows($emailcheck) > 0) {
           echo "<script>alert('Email already exists!');</script>";
-      } else {  
-          // Insert new user into the database
+      } 
+      else if(mysqli_num_rows(($passwordcheck)) > 0) {
+          echo "<script>alert('Password already exists!');</script>";
+
+      }
+      else {  
           $insertQuery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-          if (mysqli_query($koneksi, $insertQuery)) {
+          if (mysqli_query($conn, $insertQuery)) {
               echo "<script>alert('Registration successful!');</script>";
-              header("Location: ../login/index.php");
+              header("Location: ../../user/index.html");
               exit();
           } else {
-              echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
+              echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
           }
       }
   }
   
   ?>
+  <div class="login-page">
+
+    <div class="utama">
+      <a href="../../landing/index.php">HALAMAN UTAMA</a>
+    </div>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Sign-Up</h1>
-      <form action="" method="POST">
+      <form method="POST">
         <div class="input">
-            <input type="text" name="name" placeholder="username" />
-            <input type="email" name="email" placeholder="email" />
-            <input type="password" name="password" placeholder="password" />
-            <button type="submit" name="sign-up">Sign-up</button>
+          <input type="text" name="name" placeholder="username" required />
+          <input type="email" name="email" placeholder="email" required/>
+          <input type="password" name="password" placeholder="password" required />
+          <button type="submit" name="sign-up">Sign-up</button>
         </div>
         
-        <p>already have an account? <span><a href="../login/index.php" style="color: black; text-decoration: none;">login</a></span></p>
+        <p>already have an account? <span><a href="../login/index.php" class="login-link">login</a></span></p>
+      </div>
     </div>
   </body>
 </html>

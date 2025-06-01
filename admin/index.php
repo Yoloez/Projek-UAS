@@ -1,25 +1,17 @@
 <?php
 session_start();
-include '../koneksi.php'; // Sertakan file koneksi database
-
-// --- AUTENTIKASI (Sama seperti sebelumnya, sebaiknya ditingkatkan) ---
-// if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-//     header("Location: login.php");
-//     exit;
-// }
-
-// --- AWAL LOGIKA UPDATE STOK ---
+include '../koneksi.php'; 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_stock_batch'])) {
     if (isset($_POST['food_ids']) && isset($_POST['quantities'])) {
         $food_ids = $_POST['food_ids'];
         $quantities = $_POST['quantities'];
         $updated_count = 0;
-        $error_messages_stock = []; // Gunakan nama variabel yang berbeda untuk pesan error stok
+        $error_messages_stock = []; 
 
         if (count($food_ids) === count($quantities)) {
             for ($i = 0; $i < count($food_ids); $i++) {
                 $food_id = intval($food_ids[$i]);
-                // Ambil stok lama untuk perbandingan, atau langsung update saja
+
                 $original_quantity_input = $_POST['original_quantities'][$i]; // Ambil stok asli dari hidden input
                 $new_quantity = trim($quantities[$i]);
 
@@ -96,7 +88,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Kafe UAS</title>
-    <link rel="stylesheet" href="admin_style.css">
+    <link rel="stylesheet" href="admin-style.css">
     </head>
 <body>
     <aside class="sidebar">

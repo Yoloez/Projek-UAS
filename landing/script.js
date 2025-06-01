@@ -36,3 +36,20 @@ map.getContainer().addEventListener("wheel", function (e) {
     console.log("Tekan CTRL + scroll untuk zoom");
   }
 });
+
+let lastScrollTop = 0;
+const navbar = document.getElementById("mainNavbar");
+
+window.addEventListener("scroll", function () {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Scroll down → sembunyikan navbar
+    navbar.classList.add("navbar-hidden");
+  } else {
+    // Scroll up → tampilkan navbar
+    navbar.classList.remove("navbar-hidden");
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // handle iOS bounce
+});

@@ -11,8 +11,12 @@ html {
 /* body {
   /* font-family: poppins, sans-serif; */
 /* } */
+body {
+  margin-top: 4rem;
+}
 
 .hero {
+  margin-top: 4rem;
   top: 0;
   position: relative;
   height: 100vh;
@@ -20,7 +24,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/img/landing-ufo.jpg");
+  background-image: url("../assets/img/green-abstract-3d-3840x2160-21975.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -54,25 +58,17 @@ html {
   z-index: 2;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* width: 1800px; */
-  z-index: 10;
-  backdrop-filter: blur(10px);
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
 }
+
 .navbar {
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1700px;
-  /* margin-left: -10rem; */
-  /* margin-right: -10rem; */
-  display: flex;
-  justify-content: space-between !important;
-  background-color: rgb(255, 255, 255) !important;
-  padding: 1.3rem 0rem !important;
-  max-width: 100%;
+  transition: transform 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.2rem 1rem !important;
 }
 
 .navbar-brand {
@@ -97,6 +93,25 @@ nav {
   font-size: 32px;
   font-family: petrona;
   color: black;
+  position: relative;
+}
+
+#contentarea a::after {
+  position: absolute;
+  width: 0;
+  top: 53px;
+  left: 0px;
+  /* margin-left: 58px; */
+  height: 1.5px;
+  /* margin-bottom: 11px; */
+  background: #ffb23e;
+  content: "";
+  display: inline-block;
+}
+
+#contentarea a:hover::after {
+  width: 100%;
+  transition: width 0.3s ease-in-out;
 }
 
 @media (max-width: 991.98px) {

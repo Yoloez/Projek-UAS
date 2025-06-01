@@ -13,13 +13,45 @@
     />
 </head>
 <body>
+    <?php
+include '../../koneksi.php'; 
+
+if (isset($_POST['login'])) {
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+
+    // Cek user di tabel users
+    $query = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        session_start();
+        $row = mysqli_fetch_assoc($result);
+
+        if ($name === "admin" && $password === "admin123") {
+            $_SESSION['admin'] = $row['name'];
+            echo "<script>alert('Login sebagai Admin berhasil!');</script>";
+            header("Location: ../../dashboard/index.php"); 
+            exit();
+        } else {
+            $_SESSION['user'] = $row['name'];
+            echo "<script>alert('Login sebagai User berhasil!');</script>";
+            header("Location: ../../katalog/index.php"); 
+            exit();
+        }
+    } else {
+        echo "<script>alert('Username atau password tidak ditemukan!');</script>";
+    }
+}
+
+?>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Login</h1>
       <form action="" method="POST">
         <div class="input">
             <input type="text" name="name" placeholder="username" />
             <input type="password" name="password" placeholder="password" />
-            <button type="submit">Login</button>
+            <button type="submit" name="login">Login</button>
         </div>
         
         <p>don't have an account? <span><a href="../sign-up/index.php" style="color: white; text-decoration: none;">sign-up here</a></span></p>
