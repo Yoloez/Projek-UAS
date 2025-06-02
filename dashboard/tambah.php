@@ -39,6 +39,9 @@ if (isset($_POST['tambah'])) {
     <label>Stok:</label><br>
     <input type="number" name="stok" required><br><br>
 
+    <label for="gambar">Input Gambar</label>
+    <input type="file" name="gambar" accept="image/*" required><br><br>
+
     <label>Kategori:</label><br>
     <select name="kategori_id" required>
         <option value="">-- Pilih Kategori --</option>

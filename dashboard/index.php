@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin'])) {
 }
 
 // Pagination
-$limit = 5;
+$limit = 3;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
@@ -83,7 +83,6 @@ $total_pages = ceil($total_row['total'] / $limit);
         <?php endif; ?>
     <?php endfor; ?>
 </div>
-
         </div>
     
 </body>
