@@ -31,6 +31,7 @@ body {
   gap: 36px;
   flex-shrink: 0;
   border-radius: 41px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: 1px solid #fff;
   background: rgba(255, 255, 255, 0.11);
   backdrop-filter: blur(13.800000190734863px);
@@ -62,36 +63,46 @@ form input {
   gap: 48px;
 }
 
-/* .input input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+.input input::placeholder {
+  color: rgba(255, 255, 255, 0.789);
   font-family: Poppins;
-  font-size: 32px;
+  font-size: 21x;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-} */
+}
 
 .input input {
-  color: rgba(0, 0, 0, 1);
+  color: rgb(255, 255, 255);
   font-family: Poppins;
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background-color: #ffffff00;
+  border: rgb(255, 255, 255) 1px solid;
 }
 
 .input button {
   height: 66px;
   align-self: stretch;
   border-radius: 20px;
-  background: linear-gradient(0deg, #180d07 0%, #180d07 100%), #fff;
-  color: #fff;
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
+  animation: 0.4s ease-in-out;
+  border: none;
+  background: white;
+  color: #180d07;
+}
+
+.input button:hover {
+  transition: 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
 }
 
 .card p {

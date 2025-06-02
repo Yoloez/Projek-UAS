@@ -53,6 +53,7 @@
       </div>
 
       <div class="ms-lg-auto mt-3 mt-lg-0" id="contentarea">
+        <a class="nav-link" href="../authentication/sign-up/index.php" id="nav-sign-up">Sign-up</a>
         <a class="nav-link" href="#footer">Contact us</a>
       </div>
     </div>

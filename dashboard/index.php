@@ -54,6 +54,7 @@ $total_pages = ceil($total_row['total'] / $limit);
                 <th>Description</th>
                 <th>Category</th>
                 <th>Price</th>
+                <th>Pict</th>
                 <th>Stock</th>
                 <th>Action</th>
             </tr>
@@ -63,6 +64,9 @@ $total_pages = ceil($total_row['total'] / $limit);
                     <td><?= $row['description'] ?></td>
                     <td><?= $row['nama_kategori'] ?></td>
                     <td><?= $row['price'] ?></td>
+                    <td>
+                        <img src="../uploads/<?= $row['image_url'] ?>" width="100">
+                    </td>
                     <td><?= $row['stock'] ?></td>
                     <td>
                         <button onclick="window.location.href='edit.php?food_id=<?= $row['food_id'] ?>'" class="edit">Edit</button>

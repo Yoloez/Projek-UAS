@@ -48,9 +48,9 @@
   ?>
   <div class="login-page">
 
-    <div class="utama">
+    <!-- <div class="utama">
       <a href="../../landing/index.php">HALAMAN UTAMA</a>
-    </div>
+    </div> -->
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Sign-Up</h1>
       <form method="POST">
