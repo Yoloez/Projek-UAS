@@ -12,7 +12,7 @@ body {
   /* margin-top: 4rem; */
   top: 0;
   position: relative;
-  height: 679px;
+  height: 100dvh;
   /* background-color: antiquewhite; */
   display: flex;
   justify-content: center;
@@ -34,20 +34,22 @@ body {
   color: #fff;
   text-align: center;
   font-family: Cormorant;
-  font-size: 96px;
+  font-size: 6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-shadow: #483e37;
 }
 
 .hero h1 {
   color: #fff;
   text-align: center;
   font-family: Cormorant;
-  font-size: 128px;
+  font-size: 8rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-shadow: #483e37;
 }
 
 .katalog {
@@ -59,4 +61,14 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 6rem;
+  }
+
+  .hero h2 {
+    font-size: 4rem;
+  }
 }

@@ -20,8 +20,6 @@ $result = mysqli_query($conn, "SELECT foods.*, category.nama_kategori FROM foods
 $total_result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM foods");
 $total_row = mysqli_fetch_assoc($total_result);
 $total_pages = ceil($total_row['total'] / $limit);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,11 +41,6 @@ $total_pages = ceil($total_row['total'] / $limit);
         <h2>Daftar Menu</h2>
         <button onclick="window.location.href='tambah.php'" class="tambah">Tambah Menu</button>
 
-                <div class="filter-buttons">
-            <a href="index.php" class="button-link">Semua</a>
-            <a href="?category=Makanan" class="button-link">Makanan</a>
-            <a href="?category=Minuman" class="button-link">Minuman</a>
-            </div>
         <table border="1">
             <tr>
                 <th>Name</th>
@@ -68,7 +61,7 @@ $total_pages = ceil($total_row['total'] / $limit);
                         <img src="../uploads/<?= $row['image_url'] ?>" width="100">
                     </td>
                     <td><?= $row['stock'] ?></td>
-                    <td>
+                    <td class="action-buttons">
                         <button onclick="window.location.href='edit.php?food_id=<?= $row['food_id'] ?>'" class="edit">Edit</button>
 <button onclick="if(confirm('Yakin ingin menghapus?')) window.location.href='hapus.php?food_id=<?= $row['food_id'] ?>';" class="hapus">Hapus</button>
 
@@ -87,8 +80,7 @@ $total_pages = ceil($total_row['total'] / $limit);
         <?php endif; ?>
     <?php endfor; ?>
 </div>
-        </div>
-    
+</div>
 </body>
 </html>
 

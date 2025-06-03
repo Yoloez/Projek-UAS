@@ -29,28 +29,20 @@
       if (mysqli_num_rows($emailcheck) > 0) {
           echo "<script>alert('Email already exists!');</script>";
       } 
-      else if(mysqli_num_rows(($passwordcheck)) > 0) {
-          echo "<script>alert('Password already exists!');</script>";
-
-      }
-      else {  
-          $insertQuery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-          if (mysqli_query($conn, $insertQuery)) {
-              echo "<script>alert('Registration successful!');</script>";
-              header("Location: ../../user/index.php");
-              exit();
-          } else {
-              echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
-          }
-      }
+      else {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $insertQuery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
+        if (mysqli_query($conn, $insertQuery)) {
+            echo "<script>alert('Registration successful!');</script>";
+            header("Location: ../../user/index.php");
+            exit();
+        } else {
+            echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+        }
+    }
   }
-  
   ?>
-  <div class="login-page">
 
-    <!-- <div class="utama">
-      <a href="../../landing/index.php">HALAMAN UTAMA</a>
-    </div> -->
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Sign-Up</h1>
       <form method="POST">
@@ -62,7 +54,7 @@
         </div>
         
         <p>already have an account? <span><a href="../login/index.php" class="login-link">login</a></span></p>
-      </div>
     </div>
+
   </body>
 </html>

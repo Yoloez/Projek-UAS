@@ -13,37 +13,38 @@
     />
 </head>
 <body>
-    <?php
+<?php
 include '../../koneksi.php'; 
 
 if (isset($_POST['login'])) {
     $name = $_POST['name'];
     $password = $_POST['password'];
 
-    // Cek user di tabel users
-    $query = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
+    $query = "SELECT * FROM users WHERE name = '$name'";
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) == 1) {
-        session_start();
+    if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-
-        if ($name === "admin" && $password === "admin123") {
-            $_SESSION['admin'] = $row['name'];
-            echo "<script>alert('Login sebagai Admin berhasil!');</script>";
-            header("Location: ../../dashboard/index.php"); 
-            exit();
+        if (password_verify($password, $row['password'])) {
+            session_start();
+            if ($row['role'] === 'admin') {
+                $_SESSION['admin'] = $row['name'];
+                echo "<script>alert('Login sebagai Admin berhasil!');</script>";
+                header("Location: ../../dashboard/index.php"); 
+                exit();
+            } else {
+                $_SESSION['user'] = $row['name'];
+                echo "<script>alert('Login sebagai User berhasil!');</script>";
+                header("Location: ../../user/index.php"); 
+                exit();
+            }
         } else {
-            $_SESSION['user'] = $row['name'];
-            echo "<script>alert('Login sebagai User berhasil!');</script>";
-            header("Location: ../../user/index.php"); 
-            exit();
+            echo "<script>alert('Password salah!');</script>";
         }
     } else {
-        echo "<script>alert('Username atau password tidak ditemukan!');</script>";
+        echo "<script>alert('Username tidak ditemukan!');</script>";
     }
 }
-
 ?>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Login</h1>
