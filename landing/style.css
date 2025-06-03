@@ -8,6 +8,9 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  width: 100%;
+}
 
 .hero {
   /* margin-top: 4rem; */
@@ -63,6 +66,8 @@ html {
   background-color: rgba(0, 0, 0, 0.644) !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.653);
   padding: 0.6rem 1rem !important;
+  width: 100% !important;
+  max-width: 1920px !important;
 }
 
 .navbar-brand {
@@ -492,19 +497,98 @@ footer {
 }
 
 .btn button {
-  background-color: #c4a163;
-  color: white;
-  padding: 2rem;
+  /* background-color: #90793f; */
+  color: rgb(5, 4, 4);
+  padding: 1.5rem 2.5rem;
   font-family: cormorant;
-  font-size: 30px;
-  border-radius: 25px;
-  border: none;
-  margin-bottom: 10rem;
-  margin-top: -5rem;
+  font-size: 23px;
+  border-radius: 50px;
+  border: black 1px solid;
+  margin-bottom: 5rem;
+  margin-top: -50rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 0.2s ease-in-out;
 }
 
 .btn button:hover {
   background-color: #e4c57e;
+}
+
+@media (max-width: 490.98px) {
+  .navbar {
+    width: 100% !important;
+    /* max-width: 490.98px !important; */
+  }
+
+  .hero-desc {
+    width: 80%;
+  }
+
+  .hero-desc h1 {
+    /* margin-top: 1rem; */
+    font-size: 96px !important;
+    margin-bottom: 0rem !important;
+  }
+  .hero-desc h2 {
+    margin-top: -11rem !important;
+    font-size: 56px !important;
+  }
+
+  #about-us {
+    padding: 0 1rem;
+  }
+
+  .about-us {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-us img {
+    margin-top: 8rem !important;
+    width: 100%;
+  }
+
+  .about-us-desc {
+    text-align: center;
+    max-width: none;
+    padding: 0 1rem;
+    margin-bottom: 7rem;
+  }
+
+  .about-us-desc h1 {
+    font-size: 52px !important;
+    /* display: none; */
+    text-align: center;
+  }
+
+  .about-us-desc h2 {
+    display: none;
+  }
+
+  .taste h1 {
+    width: 400px !important;
+    font-size: 48px !important;
+    padding: 0 2rem;
+  }
+
+  .taste-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  .footer-content {
+    gap: 3rem;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1rem;
+  }
+  #map {
+    height: 400px;
+  }
 }

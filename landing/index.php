@@ -37,7 +37,7 @@
     <link rel="icon" href="../assets/img/kopi1.jpg" type="image/x-icon" />  
   </head>
   <body>
-<nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top shadow-sm">
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Orbyt</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -75,7 +75,7 @@
     <div class="hero" id="hero">
       <!-- <img src="../assets/img/landing-ufo.jpg" alt="gambar-ufo" /> -->
       <div class="hero-desc">
-        <h1 style="color: #fff; text-align: center; font-family: Cormorant; font-size: 128px; font-style: normal; font-weight: 400; line-height: normal; width: 1203px; height: 335px; flex-shrink: 0">ORBYT</h1>
+        <h1 style="color: #fff; text-align: center; font-family: Cormorant; font-size: 128px; font-style: normal; font-weight: 400; line-height: normal;  height: 335px; flex-shrink: 0">ORBYT</h1>
         <h2 style="color: #fff; text-align: center; font-family: Cormorant; font-size: 96px; font-style: normal; font-weight: 400; line-height: normal; margin-top: -2rem">A CAFETARIA FROM ANOTHER GALAXY</h2>
       </div>
     </div>

@@ -50,8 +50,8 @@ if (isset($_POST['login'])) {
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Login</h1>
       <form action="" method="POST">
         <div class="input">
-            <input type="text" name="name" placeholder="username" />
-            <input type="password" name="password" placeholder="password" />
+            <input type="text" name="name" placeholder="username" required/>
+            <input type="password" name="password" placeholder="password" required/>
             <button type="submit" name="login">Login</button>
         </div>
         

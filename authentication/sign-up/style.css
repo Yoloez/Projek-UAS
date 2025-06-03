@@ -132,3 +132,23 @@ form input {
 .login-link:hover {
   color: rgb(240, 228, 203);
 }
+
+@media (max-width: 500px) {
+  body {
+    zoom: 0.8;
+  }
+
+  .card {
+    width: 70%;
+    height: auto;
+    padding: 20px;
+  }
+
+  form input {
+    width: 100%;
+  }
+
+  .input button {
+    width: 100%;
+  }
+}

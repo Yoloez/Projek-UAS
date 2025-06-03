@@ -1,3 +1,4 @@
+/* Reset dan Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,70 +6,308 @@
 }
 
 body {
-  background: #483e37;
+  font-family: "Poppins", sans-serif; /* Font modern dan bersih */
+  background: linear-gradient(to right, rgba(72, 62, 55, 1), rgb(133, 98, 63)); /* Background gelap - nuansa biru tua/ungu */
+  color: #e0e0e0; /* Warna teks utama yang lembut */
+  line-height: 1.6;
+  overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+.hero h1,
+.katalog h1 {
+  color: #fff;
+  text-align: center;
+  font-family: Cormorant;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .hero {
-  /* margin-top: 4rem; */
-  top: 0;
-  position: relative;
-  height: 100dvh;
-  /* background-color: antiquewhite; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("../assets/img/cafe-user-black 1.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* max-height: 1080px; */
-  width: 100%;
-  /* filter: brightness(50%); */
-  /* min-width: 100%; */
-  flex-direction: column;
-  max-height: 1080px;
-  z-index: 1;
+  background-image: url("../assets/img/cafe-user-black\ 1.png");
+  color: #ffffff;
+  padding: 100px 20px 80px; /* Padding lebih besar di atas */
+  text-align: center;
+  position: relative; /* Untuk efek pseudo-element jika diperlukan */
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero::before {
+  /* Efek garis neon subtil di bawah hero */
+  content: "";
+  position: absolute;
+  bottom: 10%; /* Sesuaikan dengan clip-path */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f19f42, transparent); /* Aksen cyan/teal */
+  box-shadow: 0 0 10px #ffaa00, 0 0 20px #f0ae4b;
+  border-radius: 2px;
 }
 
 .hero h2 {
   color: #fff;
   text-align: center;
   font-family: Cormorant;
-  font-size: 6rem;
+  font-size: 96px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-shadow: #483e37;
 }
 
 .hero h1 {
-  color: #fff;
-  text-align: center;
-  font-family: Cormorant;
-  font-size: 8rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-shadow: #483e37;
+  font-size: 4.5em;
+  margin-bottom: 20px;
+  font-weight: 600; /* Lebih tebal untuk nama brand */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* Glow effect */
 }
 
+nav a {
+  position: absolute;
+  top: 60dvh;
+  right: 9rem;
+  /* width: 100px; */
+}
+
+/* Katalog Section Title */
 .katalog {
-  margin-top: 6rem;
-  color: #fff;
   text-align: center;
-  font-family: Heebo;
-  font-size: 54px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  padding: 60px 20px 40px;
 }
 
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 6rem;
-  }
+.katalog h1 {
+  font-size: 2.8em;
+  color: #ffffff; /* Aksen cyan/teal */
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
 
+.katalog h1::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background-color: #ef983a;
+  bottom: -10px;
+  left: 15%;
+  opacity: 0.7;
+}
+
+/* Produk Container */
+.produk-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+  gap: 35px; /* Jarak antar kartu produk */
+  padding: 20px 5%; /* Padding kiri-kanan 5% */
+  max-width: 1400px;
+  margin: 0 auto 50px auto; /* Tengah dan margin bawah */
+}
+
+/* Styling Kartu Produk */
+.produk {
+  background-color: rgba(50, 28, 20, 0.7); /* Background kartu produk agak transparan */
+  border: 1px solid rgba(255, 149, 0, 0.2); /* Border dengan aksen warna */
+  border-radius: 15px; /* Sudut melengkung */
+  overflow: hidden; /* Agar gambar tidak keluar dari border-radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Shadow lebih dramatis */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(5px); /* Efek glassmorphism jika browser mendukung */
+}
+
+.produk:hover {
+  transform: translateY(-10px) scale(1.03); /* Efek hover mengangkat dan sedikit membesar */
+  box-shadow: 0 12px 35px rgba(255, 217, 0, 0.3); /* Shadow dengan aksen saat hover */
+}
+
+.produk img {
+  width: 100%;
+  height: 220px; /* Tinggi gambar tetap */
+  object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+  border-bottom: 2px solid #d29153; /* Garis aksen di bawah gambar */
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.produk:hover img {
+  opacity: 1;
+}
+
+.produk h3 {
+  font-family: "Heebo", sans-serif;
+  font-size: 1.6em;
+  color: #ffffff;
+  margin: 20px 20px 10px;
+  font-weight: 500;
+}
+
+.produk p {
+  font-size: 0.95em;
+  color: #b0b0d0; /* Warna deskripsi lebih lembut */
+  margin: 0 20px 15px;
+  flex-grow: 1; /* Agar deskripsi mengisi ruang, mendorong tombol ke bawah */
+}
+
+.produk p strong {
+  font-size: 1.3em;
+  color: #f3c3a0; /* Warna harga dengan aksen biru muda */
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.produk form {
+  padding: 0 20px 20px;
+  margin-top: auto; /* Mendorong form ke bawah jika konten di atasnya pendek */
+}
+
+.produk button {
+  background: linear-gradient(90deg, #ff9d00, #ffb700); /* Gradient untuk tombol */
+  color: #0a0a1f; /* Warna teks kontras dengan background tombol */
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-size: 200% auto; /* Untuk efek hover pada gradient */
+}
+
+.produk button:hover {
+  background-position: right center; /* Menggeser gradient */
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.5);
+  transform: scale(1.05);
+}
+.filter-container {
+  text-align: center;
+  margin-bottom: 35px; /* Jarak dari tombol ke produk */
+  margin-top: -10px; /* Naikkan sedikit lebih dekat ke judul katalog */
+  padding: 10px 0;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: #ffffff; /* Warna aksen */
+  border: 2px solid #ffffff;
+  padding: 10px 28px; /* Padding yang nyaman */
+  margin: 5px 10px; /* Jarak antar tombol */
+  border-radius: 50px; /* Bentuk pil/oval */
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  outline: none; /* Hilangkan outline default browser */
+}
+
+.filter-btn:hover {
+  background-color: #f0bd5d;
+  color: #0a0a1f; /* Warna dasar background body */
+  transform: translateY(-3px); /* Efek sedikit terangkat */
+  box-shadow: 0 6px 18px rgba(255, 136, 0, 0.35); /* Shadow lebih jelas saat hover */
+}
+
+.filter-btn.active {
+  background-color: #f0bd5d;
+  color: #0a0a1f;
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); /* Shadow untuk tombol aktif */
+  font-weight: 700; /* Sedikit lebih tebal untuk tombol aktif */
+}
+
+/* Link Lihat Keranjang */
+a[href="keranjang.php"] {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 60px; /* Posisikan di tengah */
+  padding: 15px 35px;
+  background-color: transparent;
+  color: #ffffff; /* Aksen cyan/teal */
+  border: 2px solid #ffffff;
+  border-radius: 50px; /* Bentuk pil */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a[href="keranjang.php"]:hover {
+  background-color: #95664d;
+  color: #ffffff; /* Warna teks menjadi gelap saat background terang */
+  box-shadow: 0 0 20px rgba(3, 7, 7, 0.6);
+}
+
+/* Scrollbar Styling (opsional, untuk browser berbasis WebKit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007799; /* Warna scrollbar lebih gelap dari aksen */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00aaff;
+}
+
+/* Responsiveness (Contoh sederhana, bisa disesuaikan lebih lanjut) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3em;
+  }
   .hero h2 {
-    font-size: 4rem;
+    font-size: 1.3em;
+  }
+  .katalog h1 {
+    font-size: 2.2em;
+  }
+  .produk-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ukuran minimum kartu lebih kecil */
+    gap: 25px;
+  }
+  .produk h3 {
+    font-size: 1.4em;
+  }
+  .produk p strong {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 15px 60px;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); /* Clip path lebih landai */
+  }
+  .hero::before {
+    bottom: 5%;
+  }
+  .hero h1 {
+    font-size: 2.5em;
+  }
+  .hero h2 {
+    font-size: 1.1em;
+  }
+  .katalog h1 {
+    font-size: 1.8em;
+  }
+  .produk-container {
+    padding: 15px;
+    gap: 20px;
+  }
+  .produk img {
+    height: 180px;
   }
 }
