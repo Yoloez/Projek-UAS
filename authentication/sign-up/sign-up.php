@@ -42,7 +42,10 @@
     }
   }
   ?>
+<nav style="position: relative;">
+  <a class="navbar-brand" href="../landing/index.php" style="color: #fff; text-decoration:none; position:absolute; left:50%; width:100%; background-color:aqua" >Orbyt</a>
 
+</nav>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Sign-Up</h1>
       <form method="POST">
@@ -53,7 +56,7 @@
           <button type="submit" name="sign-up">Sign-up</button>
         </div>
         
-        <p>already have an account? <span><a href="../login/index.php" class="login-link">login</a></span></p>
+        <p>already have an account? <span><a href="../login/login.php" class="login-link">login</a></span></p>
     </div>
 
   </body>

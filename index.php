@@ -39,7 +39,7 @@
   <body>
 <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Orbyt</a>
+    <a class="navbar-brand" href="../landing/index.php">Orbyt</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
       </div>
 
       <div class="ms-lg-auto mt-3 mt-lg-0" id="contentarea">
-        <a class="nav-link" href="../authentication/sign-up/index.php" id="nav-sign-up">Sign-up</a>
+        <a class="nav-link" href="authentication/sign-up/sign-up.php" id="nav-sign-up">Sign-up</a>
         <a class="nav-link" href="#footer">Contact us</a>
       </div>
     </div>
@@ -82,7 +82,7 @@
 
     <section id="about-us">
       <div class="about-us">
-        <img src="../assets/img/mockup-graphics-AIkFaeX9ILc-unsplash 1.png" alt="kopi-about-us" style="margin-top: 224px; "/>
+        <img src="assets/img/mockup-graphics-AIkFaeX9ILc-unsplash 1.png" alt="kopi-about-us" style="margin-top: 224px; "/>
         <div class="about-us-desc">
           <h2 style="color: #000; font-family: Cormorant; font-size: 32px; font-style: normal; font-weight: 400; line-height: normal">About Us</h2>
           <h1 style="color: #000; font-family: Cormorant; font-size: 64px; font-style: normal; font-weight: 700; line-height: normal">we believe that coffee is more than just fuel — it's a journey.</h1>
@@ -112,17 +112,17 @@ font-weight: 400;
 line-height: normal;">FOR THE LOVE OF COFFEE AND BREAD</h1>
       <div class="taste-container">
         <div class="taste-item">
-          <img src="../assets/svg/cafe 1.svg" alt="kopi" />
+          <img src="assets/svg/cafe 1.svg" alt="kopi" />
           <h2>Cafetaria</h2>
           <p>A warm little corner serving fresh brews and baked goods simple pleasures, done right.</p>
         </div>
         <div class="taste-item">
-          <img src="../assets/svg/cheers 1.svg" alt="roti" />
+          <img src="assets/svg/cheers 1.svg" alt="roti" />
           <h2>Moments</h2>
           <p>For slow mornings or lively chats — let coffee and bread accompany your favorite moments</p>
         </div>
         <div class="taste-item">
-          <img src="../assets/svg/gift-box 1.svg" alt="kopi dan roti" />
+          <img src="assets/svg/gift-box 1.svg" alt="kopi dan roti" />
           <h2>Handcrafted Flavor</h2>
           <p>Every cup and loaf is made with care — a gift of comfort, one sip and bite at a time</p>
       </div>
@@ -159,7 +159,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
       <div class="row">
         <div class="col-md-4">
           <div class="card product-card mb-3">
-            <img src="../assets/img/kopi1.jpg" class="card-img-top" alt="Cucumber">
+            <img src="assets/img/kopi1.jpg" class="card-img-top" alt="Cucumber">
             <div class="card-body">
               <h5 class="card-title">Coffee Latte</h5>
               <p class="card-text">A smooth and creamy blend of rich espresso and steamed milk, topped with a light layer of foam.</p>
@@ -168,7 +168,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
         </div>
         <div class="col-md-4">
             <div class="card product-card mb-3">
-              <img src="../assets/img/mango.jpg" class="card-img-top" alt="Tomato">
+              <img src="assets/img/mango.jpg" class="card-img-top" alt="Tomato">
               <div class="card-body">
                 <h5 class="card-title">Mango Mist</h5>
                 <p class="card-text">Ripe mango blended with ice, milk, and a touch of mint syrup—naturally sweet and creamy.</p>
@@ -177,7 +177,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
           </div>
           <div class="col-md-4">
             <div class="card product-card mb-3" id="cappucino">
-              <img src="../assets/img/cappucino.jpg" class="card-img-top" alt="Lettuce">
+              <img src="assets/img/cappucino.jpg" class="card-img-top" alt="Lettuce">
               <div class="card-body">
                 <h5 class="card-title">Cappucino</h5>
                 <p class="card-text">Espresso with steamed milk and velvety foam
@@ -192,7 +192,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
         <div class="row">
           <div class="col-md-4">
             <div class="card product-card mb-3">
-              <img src="../assets/img/croissant.jpg" class="card-img-top" alt="Carrot">
+              <img src="assets/img/croissant.jpg" class="card-img-top" alt="Carrot">
               <div class="card-body">
                 <h5 class="card-title">Croissant</h5>
                 <p class="card-text">A flaky, golden pastry with delicate layers of buttery goodness, baked to perfection for an authentic French bakery experience.</p>
@@ -201,7 +201,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
           </div>
           <div class="col-md-4">
             <div class="card product-card mb-3">
-              <img src="../assets/img/matcha.jpg" class="card-img-top" alt="Pepper">
+              <img src="assets/img/matcha.jpg" class="card-img-top" alt="Pepper">
               <div class="card-body">
                 <h5 class="card-title">Matcha Cloud</h5>
                 <p class="card-text">Japanese matcha shaken with cold milk and topped with a fluffy milk foam.</p>
@@ -210,7 +210,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
           </div>
           <div class="col-md-4">
             <div class="card product-card mb-3">
-              <img src="../assets/img/blueberry.jpg" class="card-img-top" alt="Pepper">
+              <img src="assets/img/blueberry.jpg" class="card-img-top" alt="Pepper">
               <div class="card-body">
                 <h5 class="card-title">Blueberry Muffin</h5>
                 <p class="card-text">A moist, fluffy muffin bursting with fresh blueberries and topped with a golden crumb.</p>
@@ -236,7 +236,7 @@ Indulge in a curated selection of artisanal products, crafted to elevate your ca
 
 
 <div class="btn" style="position: relative; width: 100%;">
-  <button onclick="window.location.href='../authentication/sign-up/index.php'">ORDER NOW</button>
+  <button onclick="window.location.href='authentication/sign-up/sign-up.php'">ORDER NOW</button>
 </div>
 
 
@@ -257,16 +257,16 @@ line-height: normal; margin-top: -8rem;">Orbyt</h1>
   <div class="footer-content">
     <div class="footer-left">
       <div class="icon-left">
-<img src="../assets/svg/hugeicons_maps.svg" alt="">
+<img src="assets/svg/hugeicons_maps.svg" alt="">
 <p>Pogung Rejo No.423A,<br>Sleman, DIY</p>
       </div>
       <div class="icon-left">
-<img src="../assets/svg/Vector.svg" alt="">
+<img src="assets/svg/Vector.svg" alt="">
 <p>hananfijananto@gmail.com</p>
       </div>
 
       <div class="icon-left">
-<img src="../assets/svg/ri_phone-fill.svg" alt="">
+<img src="assets/svg/ri_phone-fill.svg" alt="">
 <p>+6285865172878</p>
       </div>
     </div>
@@ -274,9 +274,9 @@ line-height: normal; margin-top: -8rem;">Orbyt</h1>
     <div class="footer-center">
       <p class="tagline">Where every bite takes you on a flavorful orbit<br>beyond the ordinary</p>
       <div class="social-icons">
-        <a href="https://www.instagram.com/hnfja/" target="_blank"><span class="circle-icon"><img src="../assets/svg/iconoir_instagram.svg" alt="ig"></span></a>
-        <a href="https://www.youtube.com/@hnnfja" target="_blank"><span class="circle-icon"><img src="../assets/svg/iconoir_youtube.svg" alt="yt"></span></a>
-        <a href="https://www.tiktok.com/@yolo.ez?lang=en" target="_blank"><span class="circle-icon"><img src="../assets/svg/ic_baseline-tiktok.svg" alt="tt"></span></a>
+        <a href="https://www.instagram.com/hnfja/" target="_blank"><span class="circle-icon"><img src="assets/svg/iconoir_instagram.svg" alt="ig"></span></a>
+        <a href="https://www.youtube.com/@hnnfja" target="_blank"><span class="circle-icon"><img src="assets/svg/iconoir_youtube.svg" alt="yt"></span></a>
+        <a href="https://www.tiktok.com/@yolo.ez?lang=en" target="_blank"><span class="circle-icon"><img src="assets/svg/ic_baseline-tiktok.svg" alt="tt"></span></a>
       </div>
     </div>
     
@@ -298,7 +298,7 @@ line-height: normal;margin-top: 25px;">Copyright © Orbyt. All rights reserved</
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="landing/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>

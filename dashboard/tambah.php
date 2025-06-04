@@ -34,7 +34,7 @@ if (isset($_POST['tambah'])) {
                   VALUES ('$nama', '$deskripsi', '$harga', '$stok', '$kategori_id', '$gambar_db')";
 
         if (mysqli_query($conn, $query)) {
-            header("Location: index.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             echo "Gagal menambahkan: " . mysqli_error($conn);

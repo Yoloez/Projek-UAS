@@ -30,7 +30,7 @@ body {
   padding: 100px 20px 80px; /* Padding lebih besar di atas */
   text-align: center;
   position: relative; /* Untuk efek pseudo-element jika diperlukan */
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
 }
 
 .hero::before {
@@ -64,11 +64,24 @@ body {
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* Glow effect */
 }
 
-nav a {
-  position: absolute;
-  top: 60dvh;
-  right: 9rem;
+.keranjang a {
+  z-index: 1000;
+  position: fixed;
+  top: 8rem;
+  left: -1.7rem;
+  /* top: 60dvh; */
+  /* right: 9rem; */
   /* width: 100px; */
+}
+.keranjang a:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.log-out {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(50, 28, 20, 0.186); /* Background semi-transparan */
 }
 
 /* Katalog Section Title */
@@ -243,6 +256,36 @@ a[href="keranjang.php"]:hover {
   background-color: #95664d;
   color: #ffffff; /* Warna teks menjadi gelap saat background terang */
   box-shadow: 0 0 20px rgba(3, 7, 7, 0.6);
+}
+
+/* ... CSS Anda yang sudah ada ... */
+/* Toast Notification Styling */
+.toast-notification {
+  position: fixed; /* Tetap di layar saat scroll */
+  bottom: 30px; /* Jarak dari bawah layar */
+  left: 50%; /* Posisikan di tengah horizontal */
+  transform: translateX(-50%) translateY(150%); /* Awalnya di luar layar & tengah */
+  background-color: #28a745; /* Warna hijau untuk sukses (Bootstrap success color) */
+  color: white;
+  padding: 16px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Pastikan di atas elemen lain */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  min-width: 250px; /* Lebar minimum */
+  text-align: center;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* Geser ke posisi terlihat */
+}
+
+.toast-notification.error {
+  background-color: #dc3545; /* Warna merah untuk error (Bootstrap danger color) */
 }
 
 /* Scrollbar Styling (opsional, untuk browser berbasis WebKit) */

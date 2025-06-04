@@ -96,7 +96,7 @@ if (isset($_POST['update'])) {
 
     if (mysqli_stmt_execute($stmt_update)) {
         mysqli_stmt_close($stmt_update);
-        header("Location: index.php?status=updated");
+        header("Location: dashboard.php?status=updated");
         exit();
     } else {
         echo "Gagal update: " . mysqli_stmt_error($stmt_update);

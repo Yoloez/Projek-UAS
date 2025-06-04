@@ -30,12 +30,12 @@ if (isset($_POST['login'])) {
             if ($row['role'] === 'admin') {
                 $_SESSION['admin'] = $row['name'];
                 echo "<script>alert('Login sebagai Admin berhasil!');</script>";
-                header("Location: ../../dashboard/index.php"); 
+                header("Location: ../../dashboard/dashboard.php"); 
                 exit();
             } else {
                 $_SESSION['user'] = $row['name'];
                 echo "<script>alert('Login sebagai User berhasil!');</script>";
-                header("Location: ../../user/index.php"); 
+                header("Location: ../../user/user.php"); 
                 exit();
             }
         } else {
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
             <button type="submit" name="login">Login</button>
         </div>
         
-        <p>don't have an account? <span><a href="../sign-up/index.php" style="color: white; text-decoration: none;">sign-up here</a></span></p>
+        <p>don't have an account? <span><a href="../sign-up/sign-up.php" style="color: white; text-decoration: none;">sign-up here</a></span></p>
     </div>
 </body>
 </html>

@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/img/landing-ufo.jpg");
+  background-image: url("assets/img/landing-ufo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -188,7 +188,7 @@ body {
 
 #premium {
   position: relative;
-  background-image: url("../assets/img/premium-coffee2.jpg");
+  background-image: url("assets/img/premium-coffee2.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
