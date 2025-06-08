@@ -14,38 +14,61 @@
 </head>
 <body>
 <?php
-include '../../koneksi.php'; 
+session_start();
+include '../../koneksi.php';
+
+// Redirect jika sudah login    
+if (isset($_SESSION['username'])) {
+    $redirect = ($_SESSION['role'] === 'admin') ? '../../dashboard/dashboard.php' : '../../user/user.php';
+    header("Location: $redirect");
+    exit();
+}
+
+$login_error = '';
 
 if (isset($_POST['login'])) {
-    $name = $_POST['name'];
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
     $password = $_POST['password'];
 
     $query = "SELECT * FROM users WHERE name = '$name'";
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) === 1) {
+    if ($result && mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            session_start();
+            $_SESSION['username'] = $row['name'];
+            $_SESSION['role'] = $row['role'];
+            $_SESSION['user_id'] = $row['id'];
+
             if ($row['role'] === 'admin') {
-                $_SESSION['admin'] = $row['name'];
-                echo "<script>alert('Login sebagai Admin berhasil!');</script>";
-                header("Location: ../../dashboard/dashboard.php"); 
+                header("Location: ../../dashboard/dashboard.php");
                 exit();
             } else {
-                $_SESSION['user'] = $row['name'];
-                echo "<script>alert('Login sebagai User berhasil!');</script>";
-                header("Location: ../../user/user.php"); 
+                header("Location: ../../user/user.php");    
                 exit();
             }
         } else {
-            echo "<script>alert('Password salah!');</script>";
+            $login_error = "Password salah!";
         }
     } else {
-        echo "<script>alert('Username tidak ditemukan!');</script>";
+        $login_error = "Username tidak ditemukan!";
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Inter:wght@400&family=Italiana&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<a href="../../index.php" style="position: absolute; left:2rem; top: 2rem; text-decoration:none;color:white; font-size: 35px">Orbyt</a>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Login</h1>
       <form action="" method="POST">

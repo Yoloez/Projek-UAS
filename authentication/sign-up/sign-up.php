@@ -34,7 +34,7 @@
         $insertQuery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
         if (mysqli_query($conn, $insertQuery)) {
             echo "<script>alert('Registration successful!');</script>";
-            header("Location: ../../user/index.php");
+            header("Location: ../../user/user.php");
             exit();
         } else {
             echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
@@ -42,10 +42,7 @@
     }
   }
   ?>
-<nav style="position: relative;">
-  <a class="navbar-brand" href="../landing/index.php" style="color: #fff; text-decoration:none; position:absolute; left:50%; width:100%; background-color:aqua" >Orbyt</a>
-
-</nav>
+<a href="../../index.php" style="position: absolute; left:2rem; top: 2rem; text-decoration:none;color:white; font-size: 35px">Orbyt</a>
     <div class="card">
       <h1 style="color: #fff; font-family: Cormorant; font-size: 54px; font-style: normal; font-weight: 700; line-height: normal">Sign-Up</h1>
       <form method="POST">

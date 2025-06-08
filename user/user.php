@@ -2,44 +2,73 @@
 session_start();
 include '../koneksi.php';
 
-// Inisialisasi keranjang
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+// Pastikan user sudah login dan memiliki user_id di session
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../authentication/login/login.php");
+    exit();
+}
+$user_id = $_SESSION['user_id'];
+$username = $_SESSION['username'];
+
+// Validasi role
+if ($_SESSION['role'] !== 'user') {
+    header("Location: ../authentication/login/login.php?pesan=akses_ditolak");
+    exit();
 }
 
-// Hitung jumlah item keranjang untuk pemuatan halaman awal
-$cart_item_count = 0;
-if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-    $cart_item_count = array_sum($_SESSION['cart']);
-}
-
-// Jika user menambahkan ke keranjang (akan ditangani oleh AJAX)
+// ---- LOGIKA AJAX UNTUK TAMBAH KERANJANG ----
 if (isset($_POST['add_to_cart']) && isset($_POST['food_id'])) {
-    $food_id = $_POST['food_id'];
+    $food_id = (int)$_POST['food_id'];
 
-    if (!isset($_SESSION['cart'][$food_id])) {
-        $_SESSION['cart'][$food_id] = 1;
+    // Cek apakah item sudah ada di keranjang user
+    $check_cart_sql = "SELECT * FROM cart_items WHERE id = ? AND food_id = ?";
+    $stmt = mysqli_prepare($conn, $check_cart_sql);
+    mysqli_stmt_bind_param($stmt, "ii", $user_id, $food_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        // Jika sudah ada, UPDATE quantity + 1
+        $update_sql = "UPDATE cart_items SET quantity = quantity + 1 WHERE id = ? AND food_id = ?";
+        $stmt_update = mysqli_prepare($conn, $update_sql);
+        mysqli_stmt_bind_param($stmt_update, "ii", $user_id, $food_id);
+        mysqli_stmt_execute($stmt_update);
     } else {
-        $_SESSION['cart'][$food_id] += 1;
+        // Jika belum ada, INSERT item baru
+        $insert_sql = "INSERT INTO cart_items (id, food_id, quantity) VALUES (?, ?, 1)";
+        $stmt_insert = mysqli_prepare($conn, $insert_sql);
+        mysqli_stmt_bind_param($stmt_insert, "ii", $user_id, $food_id);
+        mysqli_stmt_execute($stmt_insert);
     }
 
-    // Hitung ulang jumlah item keranjang saat ini
-    $current_cart_item_count = 0;
-    if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-        $current_cart_item_count = array_sum($_SESSION['cart']);
-    }
+    // Hitung ulang total item di keranjang untuk badge notifikasi
+    $count_sql = "SELECT SUM(quantity) as total_items FROM cart_items WHERE id = ?";
+    $stmt_count = mysqli_prepare($conn, $count_sql);
+    mysqli_stmt_bind_param($stmt_count, "i", $user_id);
+    mysqli_stmt_execute($stmt_count);
+    $count_result = mysqli_stmt_get_result($stmt_count);
+    $total_items = mysqli_fetch_assoc($count_result)['total_items'] ?? 0;
 
-    // Kirim respons JSON untuk permintaan AJAX
+    // Kirim respons JSON
     header('Content-Type: application/json');
     echo json_encode([
         'status' => 'success',
         'message' => 'Produk berhasil ditambahkan ke keranjang!',
-        'cart_item_count' => $current_cart_item_count
+        'cart_item_count' => $total_items
     ]);
-    exit; // Hentikan eksekusi skrip lebih lanjut untuk permintaan AJAX
+    exit;
 }
-// $cart_item_count yang dihitung di atas akan digunakan untuk render halaman awal jika bukan permintaan add_to_cart
+
+// Hitung jumlah item keranjang untuk pemuatan halaman awal
+$count_sql = "SELECT SUM(quantity) as total_items FROM cart_items WHERE id = ?";
+$stmt_count_page = mysqli_prepare($conn, $count_sql);
+mysqli_stmt_bind_param($stmt_count_page, "i", $user_id);
+mysqli_stmt_execute($stmt_count_page);
+$count_result_page = mysqli_stmt_get_result($stmt_count_page);
+$cart_item_count = mysqli_fetch_assoc($count_result_page)['total_items'] ?? 0;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,10 +98,13 @@ if (isset($_POST['add_to_cart']) && isset($_POST['food_id'])) {
         </div>
     
 <nav>
-    <div class="log-out">
-        <p align="right">
-            Logout
-        </p>
+    <div class="nav-left">
+        <i class="fa-solid fa-user"></i>
+        <span>Selamat datang, <strong><?php echo htmlspecialchars($username); ?></strong></span>
+    </div>
+    <div class="nav-right">
+        <a href="history.php" class="nav-link"><i class="fa-solid fa-history fa-fw"></i> Riwayat Pesanan</a>
+        <a href="../logout.php" class="nav-link logout-btn"><i class="fa-solid fa-sign-out-alt fa-fw"></i> Logout</a>
     </div>
 </nav>
 

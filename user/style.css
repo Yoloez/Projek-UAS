@@ -78,10 +78,43 @@ body {
   transform: scale(1.1);
 }
 
-.log-out {
-  width: 100%;
-  padding: 1rem;
-  background-color: rgba(50, 28, 20, 0.186); /* Background semi-transparan */
+/* Tambahkan ini di dalam tag <style> pada user.php */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #35251c; /* Warna coklat gelap agar serasi */
+  color: #f0e6d2;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.nav-left span {
+  margin-left: 10px;
+}
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+.nav-link {
+  color: #f0e6d2;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link:hover {
+  background-color: #ff8c00;
+  color: #35251c;
+}
+.logout-btn:hover {
+  background-color: #c85a5a;
+  color: white;
 }
 
 /* Katalog Section Title */
@@ -207,6 +240,13 @@ body {
   padding: 10px 0;
 }
 
+a[href="../logout.php"]:hover {
+  background-color: #f0bd5d;
+  color: #0a0a1f; /* Warna dasar background body */
+  transform: translateY(-3px); /* Efek sedikit terangkat */
+  box-shadow: 0 6px 18px rgba(255, 136, 0, 0.35);
+}
+
 .filter-btn {
   background-color: transparent;
   color: #ffffff; /* Warna aksen */
@@ -298,7 +338,7 @@ a[href="keranjang.php"]:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #007799; /* Warna scrollbar lebih gelap dari aksen */
+  background: #c27f21; /* Warna scrollbar lebih gelap dari aksen */
   border-radius: 5px;
 }
 
