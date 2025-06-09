@@ -180,6 +180,7 @@ $result = mysqli_query($conn, "
     <h2><i class="fa-solid fa-rocket"></i> Admin</h2>
     <a href="dashboard.php"><i class="fa-solid fa-tachometer-alt fa-fw"></i> Dashboard</a>
     <a href="tambah.php"><i class="fa-solid fa-plus fa-fw"></i> Tambah Menu</a>
+    <a href="foods.php"><i class="fa-solid fa-utensils fa-fw"></i> Kelola Menu</a>
     <a href="orders.php" class="active"><i class="fa-solid fa-box fa-fw"></i> Kelola Pesanan</a>
     <a href="../logout.php" class="logout"><i class="fa-solid fa-sign-out-alt fa-fw"></i> Logout</a>
 </div>

@@ -11,17 +11,23 @@ html {
 body {
   background-image: url("../../assets/img/sign-up.png");
   width: 100%;
-  height: 110dvh;
+  min-height: 125dvh;
+  overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  position: relative;
   flex-direction: column;
 }
 
 .card {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
   display: flex;
   width: 470px;
   height: 622px;
@@ -135,11 +141,12 @@ form input {
 
 @media (max-width: 500px) {
   body {
-    zoom: 0.8;
+    zoom: 0.9;
   }
 
   .card {
-    width: 70%;
+    /* width: 70%; */
+    margin-top: 4rem;
     height: auto;
     padding: 20px;
   }

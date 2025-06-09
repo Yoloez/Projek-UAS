@@ -140,7 +140,6 @@ $history_result = mysqli_stmt_get_result($stmt);
             <table class="history-table">
                 <thead>
                     <tr>
-                        <th>ID Pesanan</th>
                         <th>Tanggal</th>
                         <th>Total Harga</th>
                         <th>Status</th>
@@ -150,7 +149,6 @@ $history_result = mysqli_stmt_get_result($stmt);
                 <tbody>
                     <?php while($order = mysqli_fetch_assoc($history_result)): ?>
                         <tr>
-                            <td><strong>#<?= $order['order_id'] ?></strong></td>
                             <td><?= date("d F Y, H:i", strtotime($order['created_at'])) ?></td>
                             <td>Rp <?= number_format($order['total_price']) ?></td>
                             <td>
