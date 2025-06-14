@@ -4,6 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Poppins", sans-serif;
   background: #3a302a;
@@ -84,7 +88,7 @@ nav {
   background-size: cover;
   background-position: center;
   color: #ffffff;
-  padding: 80px 20px;
+  padding: 150px 20px;
   text-align: center;
 }
 .hero h2 {

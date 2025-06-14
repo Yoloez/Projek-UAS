@@ -91,6 +91,13 @@ form input {
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
+  border: none;
+}
+
+.input button:hover {
+  background: #fff;
+  color: #2c2018;
+  transition: all 0.3s ease-in-out;
 }
 
 .card p {
@@ -102,4 +109,14 @@ form input {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.sign-up-link {
+  color: white;
+  text-decoration: none;
+}
+
+.sign-up-link:hover {
+  color: #ff8c00;
+  text-decoration: none;
 }

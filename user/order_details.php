@@ -64,12 +64,12 @@ $items_result = mysqli_stmt_get_result($stmt_items);
 </head>
 <body>
 <div class="container">
-    <h1>Pesanan Berhasil!</h1>
-    <h2>Detail Pesanan #<?= htmlspecialchars($order_data['order_id']) ?></h2>
+    <h1>Order Successful</h1>
+    <h2>Order Details#<?= htmlspecialchars($order_data['order_id']) ?></h2>
 
     <div class="order-info">
         <div class="info-item">
-            <span>Tanggal Pesan</span>
+            <span>Order Date</span>
             <strong><?= date("d M Y, H:i", strtotime($order_data['created_at'])) ?></strong>
         </div>
         <div class="info-item">
@@ -77,7 +77,7 @@ $items_result = mysqli_stmt_get_result($stmt_items);
             <strong style="text-transform: capitalize;"><?= htmlspecialchars($order_data['status']) ?></strong>
         </div>
         <div class="info-item">
-            <span>Total Bayar</span>
+            <span>Total Payment</span>
             <strong>Rp <?= number_format($order_data['total_price']) ?></strong>
         </div>
     </div>
@@ -85,10 +85,10 @@ $items_result = mysqli_stmt_get_result($stmt_items);
     <table class="items-table">
         <thead>
             <tr>
-                <th>Gambar</th>
-                <th>Nama Produk</th>
-                <th>Harga Satuan</th>
-                <th>Jumlah</th>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
         </thead>
@@ -105,7 +105,7 @@ $items_result = mysqli_stmt_get_result($stmt_items);
         </tbody>
     </table>
 
-    <a href="user.php" class="back-link" align="center" style="color: white; text-decoration:none; border: 2px solid white; padding:1rem; width: 200px; border-radius: 50px; left:50%; position:relative; transform: translateX(-50%);">Kembali ke Katalog</a>
+    <a href="user.php" class="back-link" align="center" style="color: white; text-decoration:none; border: 2px solid white; padding:1rem; width: 200px; border-radius: 50px; left:50%; position:relative; transform: translateX(-50%);">Back to Catalog</a>
 </div>
 </body>
 </html>

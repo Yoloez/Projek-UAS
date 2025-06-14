@@ -21,7 +21,7 @@ $history_result = mysqli_stmt_get_result($stmt);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Pesanan - Orbyt Cafe</title>
+    <title>Order History - Orbyt Cafe</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@ $history_result = mysqli_stmt_get_result($stmt);
             --card-bg: #ffffff;
             --primary-color: #00b09b;
             --text-dark: #1b254b;
+            --text-light-gray: #718096;
             --border-color: #e2e8f0;
             --warning-color: #f59e0b;
             --info-color: #3b82f6;
@@ -49,17 +50,24 @@ $history_result = mysqli_stmt_get_result($stmt);
             padding: 20px;
         }
         .header {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
         }
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
         .header p {
             font-size: 1.1rem;
-            color: #718096;
+            color: var(--text-light-gray);
+            margin-top: 10px;
         }
+        
+        /* --- Styling Tabel Riwayat (Desktop) --- */
         .history-table {
             width: 100%;
             border-collapse: collapse;
@@ -84,10 +92,16 @@ $history_result = mysqli_stmt_get_result($stmt);
         }
         .history-table tbody tr {
             border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s ease;
+        }
+        .history-table tbody tr:hover {
+            background-color: #f9fafc;
         }
         .history-table tbody tr:last-child {
             border-bottom: none;
         }
+        
+        /* --- Elemen Umum --- */
         .status {
             padding: 6px 14px;
             border-radius: 15px;
@@ -101,6 +115,7 @@ $history_result = mysqli_stmt_get_result($stmt);
         .status.pending { background-color: var(--warning-color); }
         .status.processed { background-color: var(--info-color); }
         .status.completed { background-color: var(--success-color); }
+        
         .btn-detail {
             background-color: var(--info-color);
             color: white;
@@ -110,52 +125,113 @@ $history_result = mysqli_stmt_get_result($stmt);
             font-weight: 500;
             font-size: 0.9rem;
             transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .btn-detail:hover {
             background-color: #2563eb;
         }
+
         .empty-history {
             text-align: center;
             padding: 50px;
             background-color: var(--card-bg);
             border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
         }
+        .empty-history .icon {
+            font-size: 4rem;
+            color: var(--border-color);
+            margin-bottom: 20px;
+        }
+        .empty-history h2 { margin-bottom: 10px; }
+        .empty-history p { color: var(--text-light-gray); margin-bottom: 25px;}
+
         .back-link {
             display: inline-block;
             margin-top: 20px;
             font-weight: 500;
             color: var(--info-color);
             text-decoration: none;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #2563eb;
+        }
+
+        /* --- MEDIA QUERY UNTUK RESPONSIVE (MOBILE) --- */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .history-table thead {
+                display: none; /* Sembunyikan header tabel di mobile */
+            }
+            .history-table, .history-table tbody, .history-table tr, .history-table td {
+                display: block;
+                width: 100%;
+            }
+            .history-table tr {
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            .history-table td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+                border-bottom: 1px dashed var(--border-color);
+            }
+            .history-table td:last-child {
+                border-bottom: none;
+            }
+            .history-table td::before {
+                content: attr(data-label); /* Tampilkan label dari atribut data-label */
+                font-weight: 600;
+                color: var(--text-dark);
+            }
+            .btn-detail {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Riwayat Pesanan Anda</h1>
-            <p>Berikut adalah daftar semua transaksi yang pernah Anda lakukan.</p>
+            <h1>Your Order History</h1>
+            <p>Here's your history's list of transaction </p>
         </div>
 
         <?php if (mysqli_num_rows($history_result) > 0): ?>
             <table class="history-table">
                 <thead>
                     <tr>
-                        <th>Tanggal</th>
-                        <th>Total Harga</th>
+                        <th>Order id</th>
+                        <th>Date</th>
+                        <th>Total Price</th>
                         <th>Status</th>
-                        <th>Aksi</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while($order = mysqli_fetch_assoc($history_result)): ?>
                         <tr>
-                            <td><?= date("d F Y, H:i", strtotime($order['created_at'])) ?></td>
-                            <td>Rp <?= number_format($order['total_price']) ?></td>
-                            <td>
+                            <td data-label="ID Pesanan"><strong>#<?= $order['order_id'] ?></strong></td>
+                            <td data-label="Tanggal"><?= date("d F Y, H:i", strtotime($order['created_at'])) ?></td>
+                            <td data-label="Total Harga">Rp<?= number_format($order['total_price']) ?></td>
+                            <td data-label="Status">
                                 <span class="status <?= strtolower($order['status']) ?>"><?= htmlspecialchars($order['status']) ?></span>
                             </td>
-                            <td>
-                                <a href="order_details.php?order_id=<?= $order['order_id'] ?>" class="btn-detail">Lihat Detail</a>
+                            <td data-label="Aksi">
+                                <a href="order_details.php?order_id=<?= $order['order_id'] ?>" class="btn-detail" style="color: white;padding: 12px 1px; width:50%">  
+                                    <i class="fa-solid fa-eye"></i> View Details
+                                </a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -163,14 +239,16 @@ $history_result = mysqli_stmt_get_result($stmt);
             </table>
         <?php else: ?>
             <div class="empty-history">
-                <h2>Anda belum memiliki riwayat pesanan.</h2>
-                <p>Ayo mulai berbelanja di katalog kami!</p>
-                <a href="user.php" class="back-link">Kembali ke Katalog</a>
+                <div class="icon"><i class="fa-solid fa-box-open"></i></div>
+                <h2>You don't order yet.</h2>
+                <p>Let's buy some of our stuff!</p>
+                <a href="user.php" class="btn-detail" style="background-color: var(--success-color);">Start Shopping</a>
             </div>
         <?php endif; ?>
+
          <?php if (mysqli_num_rows($history_result) > 0): ?>
          <div style="text-align: center; margin-top:30px;">
-         <a href="user.php" class="back-link"> &larr; Kembali ke Katalog </a>
+             <a href="user.php" class="back-link"> &larr; Back to Catalog</a>
          </div>
          <?php endif; ?>
     </div>
