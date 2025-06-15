@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("assets/img/landing-ufo.jpg");
+  background-image: url("assets/img/hero-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -260,7 +260,7 @@ body {
 footer {
   height: 626px;
   flex-shrink: 0;
-  background-color: rgba(32, 54, 36, 1);
+  background-color: rgb(27, 14, 7);
   display: flex;
   flex-direction: column;
   justify-content: center;

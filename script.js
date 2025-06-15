@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const map = L.map("map", {
       center: [-7.758598115785603, 110.37126362819654],
       zoom: 17,
-      scrollWheelZoom: false, // Defaultnya zoom via scroll dinonaktifkan
+      scrollWheelZoom: true, // Defaultnya zoom via scroll dinonaktifkan
       zoomControl: true,
     });
 
